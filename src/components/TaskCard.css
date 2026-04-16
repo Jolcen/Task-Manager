@@ -1,0 +1,80 @@
+.task-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  transition: 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.task-card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.task-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.task-text {
+  font-size: 15px;
+  color: #1f2937;
+  word-break: break-word;
+}
+
+/* tarea completada */
+.task-card.completed {
+  background: #ecfdf5;
+  border-color: #86efac;
+}
+
+.task-card.completed .task-text {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+/* botón eliminar */
+.delete-btn {
+  border: none;
+  background: #ef4444;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  white-space: nowrap;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+@media (max-width: 600px) {
+  .task-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .task-card-left {
+    width: 100%;
+  }
+
+  .delete-btn {
+    width: 100%;
+  }
+}
