@@ -1,12 +1,12 @@
 import express, { Request, Response, NextFunction } from "express";
 import cors from "cors";
 import "dotenv/config";
-import { PrismaClient } from "./generated/prisma/client";
+import { PrismaClient } from "../generated/prisma/client";
 import { Pool } from "pg";
 import { PrismaPg } from "@prisma/adapter-pg";
 
 const jwt = require("jsonwebtoken");
-const SECRET_KEY = "mi_clave_secreta";
+const SECRET_KEY = process.env.JWT_SECRET || "mi_clave_secreta";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
