@@ -16,6 +16,8 @@ type BackendTask = {
   completed: boolean;
 };
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [warning, setWarning] = useState("");
@@ -26,7 +28,7 @@ function App() {
 
   const loadTasks = async () => {
     try {
-      const response = await fetch("http://localhost:3000/tasks");
+      const response = await fetch(`${API_URL}/tasks`);
 
       if (!response.ok) {
         throw new Error("No se pudo obtener las tareas");
@@ -55,7 +57,7 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/tasks", {
+      const response = await fetch(`${API_URL}/tasks`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +82,7 @@ function App() {
 
   const deleteTask = async (id: number) => {
     try {
-      const response = await fetch(`http://localhost:3000/tasks/${id}`, {
+      const response = await fetch(`${API_URL}/tasks/${id}`, {
         method: "DELETE",
       });
 
@@ -105,7 +107,7 @@ function App() {
         return;
       }
 
-      const response = await fetch(`http://localhost:3000/tasks/${id}`, {
+      const response = await fetch(`${API_URL}/tasks/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
